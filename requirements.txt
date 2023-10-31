@@ -1,0 +1,15 @@
+Flask
+Flask-Cors
+Flask-RESTful
+Flask-SQLAlchemy
+flask-swagger-ui
+gunicorn
+marshmallow
+mysql-connector-python
+pre-commit
+python-dateutil
+pytz
+requests
+SQLAlchemy
+typing_extensions
+urllib3
