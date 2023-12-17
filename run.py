@@ -11,7 +11,7 @@ from flask_restful import Api
 # from app.config.mysql import db
 # from app.config.secret_manager import secrets
 # from app.responses import Responses
-# from app.routes import initialize_routes
+from app.routes import initialize_routes
 
 # app configurations
 application = Flask(__name__)
@@ -31,7 +31,7 @@ CORS(application)
 
 # v1 api configuration
 api_routes = Api(application)
-# initialize_routes(api_routes)
+initialize_routes(api_routes)
 
 @application.route('/user/health-check')
 def health_check():
