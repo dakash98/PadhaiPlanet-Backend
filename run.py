@@ -7,7 +7,7 @@ from flask import Flask, Response
 from flask_cors import CORS
 from flask_restful import Api
 
-# import app.config.logger  # Don't remove this, It configures the Flask's inbuilt logger
+from app.config.logger import logger  # Don't remove this, It configures the Flask's inbuilt logger
 # from app.config.mysql import db
 # from app.config.secret_manager import secrets
 # from app.responses import Responses
