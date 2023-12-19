@@ -39,15 +39,15 @@ class QuestionService():
             {
                 "year": 2022,
                 "papers": [
-                    {"name": "Paper 1", "url": "https://www.africau.edu/images/default/sample.pdf"},
-                    {"name": "Paper 2", "url": "https://www.africau.edu/images/default/sample.pdf"}
+                    {"name": "Paper 1", "question_url": "https://www.africau.edu/images/default/sample.pdf", "solution_url": "https://www.youtube.com/watch?v=fl-Q_bT-oO0"},
+                    {"name": "Paper 2", "question_url": "https://www.africau.edu/images/default/sample.pdf", "solution_url": "https://www.youtube.com/watch?v=fl-Q_bT-oO0"}
                 ]
             },
             {
                 "year": 2021,
                 "papers": [
-                    {"name": "Paper 1", "url": "https://www.africau.edu/images/default/sample.pdf"},
-                    {"name": "Paper 2", "url": "https://www.africau.edu/images/default/sample.pdf"}
+                    {"name": "Paper 1", "question_url": "https://www.africau.edu/images/default/sample.pdf", "solution_url": "https://www.youtube.com/watch?v=fl-Q_bT-oO0"},
+                    {"name": "Paper 2", "question_url": "https://www.africau.edu/images/default/sample.pdf", "solution_url": "https://www.youtube.com/watch?v=fl-Q_bT-oO0"}
                 ]
             }
         ]
