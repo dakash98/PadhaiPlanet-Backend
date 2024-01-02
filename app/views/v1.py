@@ -20,6 +20,92 @@ def on_failure(msg: str = "Something went wrong!"):
     return decorate
 
 
+# class Login(Resource):
+
+#     # @on_failure()
+#     def post(self):
+#         data = request.json
+#         email_or_phone = data.get('email_or_phone')
+#         password = data.get('password')
+
+#         if not email_or_phone or not password:
+#             return Response(
+#                 response=json.dumps({"meta": {"status_code": 1001, 'success': False,
+#                                               "message": "Fields Missing"}, "data": {"message": "Please provide missing fields."}}, default=str),
+#                 status=200,
+#                 headers={'content-type': 'application/json'}
+#             )
+
+#         is_user_credential_correct = UserService.check_user_credentials(email_or_phone, password)
+
+#         msg = "User logged in" if is_user_credential_correct else "Invalid user"
+
+#         return Response(
+#             response=json.dumps({"meta": {"status_code": 2001, 'success': True,
+#                                 "message": "msg"}, "data": msg}, default=str),
+#             status=200,
+#             headers={'content-type': 'application/json'})
+
+class Login(Resource):
+
+    # @on_failure()
+    def post(self):
+        data = request.json
+        email_or_phone = data.get('email_or_phone')
+        password = data.get('password')
+
+        if not email_or_phone or not password:
+            return Response(
+                response=json.dumps({"meta": {"status_code": 1001, 'success': False,
+                                              "message": "Fields Missing"}, "data": {"message": "Please provide missing fields."}}, default=str),
+                status=200,
+                headers={'content-type': 'application/json'}
+            )
+        
+        msg = "Invalid user"
+        status_code = 2001
+        user_id = None
+        if email_or_phone == "9999999999" and password == "Padhaiplanet@123":
+            msg = "User logged in"
+            status_code = 2000
+            user_id = 10201
+
+        return Response(
+            response=json.dumps({"meta": {"status_code": status_code, 'success': True,
+                                "message": msg}, "data": {"user_id": user_id}}, default=str),
+            status=200,
+            headers={'content-type': 'application/json'})
+    
+
+class Logout(Resource):
+
+    # @on_failure()
+    def post(self):
+        data = request.json
+        user_id = data.get("user_id")
+
+        if not user_id:
+            return Response(
+                response=json.dumps({"meta": {"status_code": 1001, 'success': False,
+                                              "message": "Fields Missing"}, "data": {"message": "Please provide missing fields."}}, default=str),
+                status=200,
+                headers={'content-type': 'application/json'}
+            )
+        
+        msg = "Invalid user"
+        status_code = 2001
+        
+        if int(user_id) > 0:
+            msg = "Logged Out Successfully"
+            status_code = 2000
+
+        return Response(
+            response=json.dumps({"meta": {"status_code": status_code, 'success': True,
+                                "message": "msg"}, "data": msg}, default=str),
+            status=200,
+            headers={'content-type': 'application/json'})
+
+
 class SignUp(Resource):
 
     # @on_failure()
