@@ -8,32 +8,31 @@ from flask_cors import CORS
 from flask_restful import Api
 
 from app.config.logger import logger  # Don't remove this, It configures the Flask's inbuilt logger
-# from app.config.mysql import db
+from app.config.mysql import db
 # from app.config.secret_manager import secrets
-# from app.responses import Responses
 from app.routes import initialize_routes
 
 # app configurations
 application = Flask(__name__)
-# application.config.from_object('app.config.mysql.Config')
+application.config.from_object('app.config.mysql.Config')
 CORS(application)
 
 # initialize db instance
-# db.init_app(application)
-# application.config['SQLALCHEMY_ECHO'] = True
+db.init_app(application)
+application.config['SQLALCHEMY_ECHO'] = True
 
 
-# @application.after_request
-# def after_request(response):
-#     db.session.close()
-#     return response
+@application.after_request
+def after_request(response):
+    db.session.close()
+    return response
 
 
 # v1 api configuration
 api_routes = Api(application)
 initialize_routes(api_routes)
 
-@application.route('/user/health-check')
+@application.route('/api/health-check')
 def health_check():
     """ Root route to check app health """
     
@@ -46,4 +45,4 @@ def health_check():
 
 
 if __name__ == '__main__':
-    application.run(port=8000, debug=True)
+    application.run(port=8000, host="0.0.0.0")

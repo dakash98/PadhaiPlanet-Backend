@@ -8,15 +8,42 @@ else
   exit 1
 fi
 
-# Create a virtual environment
-python3 -m venv venv
+if [ -d "venv" ]; then
+    echo "Virtual environment 'venv' exists in the current directory."
+
+    # Path to your requirements.txt file
+    requirements_file="requirements.txt"
+
+    # Loop through each line in the requirements.txt file
+    while IFS= read -r line; do
+        # Check if the package is installed in the virtual environment
+
+        if ! pip show "$line" > /dev/null 2>&1; then
+            echo "Package '$line' is missing."
+            pip install $line
+        fi
+    done < "$requirements_file"
+
+else
+    echo "No virtual environment found in the current directory."
+    echo "Creating a virtual environment"
+    
+    python3 -m venv venv
+    echo "Virtual environment created"
+
+    echo "Installing requirements from requirements.txt file."
+    pip3 install -r requirements.txt
+    echo "Requirements installed successfully"
+fi
 
 # Activate the virtual environment
+echo "--- Activating Virtual Environment ---"
 source venv/bin/activate
 
-pip install -r requirements.txt
+# pip install -r requirements.txt
 
-echo "Virtual environment created and requirements installed."
+echo "--------------------- Virtual environment activated -----------------------"
 
 
-# run this script with -> source project_setup.sh
+echo "Running Server"
+python3 run.py

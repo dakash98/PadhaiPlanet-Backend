@@ -13,3 +13,6 @@ requests
 SQLAlchemy
 typing_extensions
 urllib3
+Werkzeug==2.2.2
+boto3==1.26.59
+botocore==1.29.59

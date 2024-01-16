@@ -5,9 +5,8 @@ from app.views.v1 import QuestionPapers, SignUp, InputConfig, Login, Logout
 def initialize_routes(api: Api):
     """ Initialized all the v1 routes related to User. """
 
-    api.prefix = '/v1'
+    api.prefix = '/api/v1'
 
-    # OTP
     api.add_resource(QuestionPapers, '/get-question')
 
     api.add_resource(SignUp, '/signup')
