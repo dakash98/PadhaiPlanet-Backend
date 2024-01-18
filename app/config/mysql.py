@@ -2,9 +2,9 @@ from flask_sqlalchemy import SQLAlchemy
 # from app.config import secrets
 
 
-DB_HOST = "127.0.0.1" # secrets["MYSQL_HOST"]
-DB_USER = "akashdeep" # secrets["MYSQL_USER"]
-DB_PASS = "akash123" # secrets["MYSQL_PASSWORD"]
+DB_HOST = "13.127.101.77" # secrets["MYSQL_HOST"]
+DB_USER = "jerry" # secrets["MYSQL_USER"]
+DB_PASS = "jerrypassword" # secrets["MYSQL_PASSWORD"]
 DB_NAME =  "padhai_planet" # secrets["MYSQL_DATABASE"]
 SQLALCHEMY_POOL_TIMEOUT = 100 # int(secrets["SQLALCHEMY_POOL_TIMEOUT"])  # Specifies the connection timeout in seconds for the pool
 SQLALCHEMY_PRE_PING = True # bool(secrets["SQLALCHEMY_PRE_PING"])

@@ -346,3 +346,21 @@ TypeError: argument of type 'int' is not iterable
 [2024-01-16 23:28:29,191] - [INFO] - [_internal.py] - [_log()] 127.0.0.1 - - [16/Jan/2024 23:28:29] "POST /api/v1/logout HTTP/1.1" 200 -
 [2024-01-16 23:28:49,745] - [INFO] - [_internal.py] - [_log()]  * Detected change in '/home/akashdeep/projects/personal/backend/run.py', reloading
 [2024-01-16 23:28:49,822] - [INFO] - [_internal.py] - [_log()]  * Restarting with stat
+[2024-01-17 23:42:06,236] - [INFO] - [_internal.py] - [_log()] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.1.110:8000
+[2024-01-17 23:42:06,236] - [INFO] - [_internal.py] - [_log()] [33mPress CTRL+C to quit[0m
+[2024-01-17 23:42:18,499] - [INFO] - [_internal.py] - [_log()] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.1.110:8000
+[2024-01-17 23:42:18,499] - [INFO] - [_internal.py] - [_log()] [33mPress CTRL+C to quit[0m
+[2024-01-17 23:42:46,125] - [INFO] - [_internal.py] - [_log()] 127.0.0.1 - - [17/Jan/2024 23:42:46] "POST /api/v1/signup HTTP/1.1" 200 -
+[2024-01-18 00:13:10,226] - [ERROR] - [services.py] - [check_user_credentials()] User can't be stored, because exception raised : 'NoneType' object has no attribute 'password'
+Traceback (most recent call last):
+  File "/home/akashdeep/projects/personal/backend/app/services.py", line 35, in check_user_credentials
+    if User.verify_password(user.password, password):
+AttributeError: 'NoneType' object has no attribute 'password'
+[2024-01-18 00:13:10,284] - [INFO] - [_internal.py] - [_log()] 127.0.0.1 - - [18/Jan/2024 00:13:10] "POST /api/v1/login HTTP/1.1" 200 -
+[2024-01-18 00:13:43,046] - [INFO] - [_internal.py] - [_log()] 127.0.0.1 - - [18/Jan/2024 00:13:43] "POST /api/v1/login HTTP/1.1" 200 -
